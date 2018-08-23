@@ -94,9 +94,11 @@ contract('Verifier', function(accounts) {
 			K = parseG1Point(proof);
 			proof = proof.slice(2);
 
-			return verifier.verifyTx.call(A_g, A_h, B_g, B_h, C_g, C_h,
-										  H, K,
-										  [35]);
+			return verifier.verifyTx.call(
+				A_g, A_h, B_g, B_h, C_g, C_h,
+				H, K,
+				['0xeffd0b7f1ccba1162ee816f731c62b4859305141990e5c0ace40d33d0b1167d1']
+			);
 		}).then(function(result) {
 			assert.equal(result, true, "The correct proof did not verify");
 		});
@@ -110,9 +112,11 @@ contract('Verifier', function(accounts) {
 		return Verifier.deployed().then(function(instance) {
 			verifier = instance;
 
-			return verifier.verifyTx.call([0,0], A_h, B_g, B_h, C_g, C_h,
-										  H, K,
-										  [35]);
+			return verifier.verifyTx.call(
+				[0,0], A_h, B_g, B_h, C_g, C_h,
+				H, K,
+				['0xeffd0b7f1ccba1162ee816f731c62b4859305141990e5c0ace40d33d0b1167d1']
+			);
 		}).then(function(result) {
 			wrongProof = result;
 
