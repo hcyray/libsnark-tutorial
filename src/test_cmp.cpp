@@ -5,7 +5,7 @@
 #include "libsnark/zk_proof_systems/ppzksnark/r1cs_ppzksnark/r1cs_ppzksnark.hpp"
 #include "libsnark/common/default_types/r1cs_ppzksnark_pp.hpp"
 #include "libsnark/gadgetlib1/pb_variable.hpp"
-#include "libsnark/gadgetlib1/basic_gadgets.hpp"
+#include "libsnark/gadgetlib1/gadgets/basic_gadgets.hpp"
 #include "gadget.hpp"
 #include "util.hpp"
 
@@ -25,9 +25,9 @@ int main()
 
     comparison_gadget<FieldT> cmp(pb, n, A, B, less, less_or_eq, "cmp");
     cmp.generate_r1cs_constraints();
-
-    pb.val(A) = FieldT(a);
-    pb.val(B) = FieldT(b);
+    
+    pb.val(A) = FieldT(10);
+    pb.val(B) = FieldT(20);
 
     cmp.generate_r1cs_witness();
     const r1cs_constraint_system<FieldT> constraint_system = pb.get_constraint_system();
