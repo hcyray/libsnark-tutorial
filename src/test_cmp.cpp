@@ -29,9 +29,10 @@ int main()
 
     comparison_gadget<FieldT> cmp(pb, n, A, B, less, less_or_eq, "cmp");
     cmp.generate_r1cs_constraints();
-    
-    pb.val(A) = FieldT(10);
-    pb.val(B) = FieldT(20);
+    int a = 10
+    int b = 10
+    pb.val(A) = FieldT(a);
+    pb.val(B) = FieldT(b);
 
     cmp.generate_r1cs_witness();
     const r1cs_constraint_system<FieldT> constraint_system = pb.get_constraint_system();
