@@ -20,7 +20,7 @@ int main()
     default_r1cs_ppzksnark_pp::init_public_params();
     protoboard<FieldT> pb;
      
-    int n = 10
+    int n = 10;
     pb_variable<FieldT> A, B, less, less_or_eq;
     A.allocate(pb, "A");
     B.allocate(pb, "B");
