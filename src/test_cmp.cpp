@@ -29,8 +29,8 @@ int main()
 
     comparison_gadget<FieldT> cmp(pb, n, A, B, less, less_or_eq, "cmp");
     cmp.generate_r1cs_constraints();
-    int a = 1048570;
-    int b = 1048590;
+    int a = 10485700;
+    int b = 10485900;
     pb.val(A) = FieldT(a);
     pb.val(B) = FieldT(b);
 
