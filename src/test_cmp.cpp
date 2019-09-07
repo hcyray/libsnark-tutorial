@@ -13,7 +13,6 @@ using namespace libsnark;
 using namespace std;
 int main()
 {
-    printf("testing comparison_gadget on all %zu bit inputs\n", n);
 
     protoboard<FieldT> pb;
 
