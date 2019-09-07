@@ -20,7 +20,7 @@ int main()
     default_r1cs_ppzksnark_pp::init_public_params();
     protoboard<FieldT> pb;
      
-    int n = 10;
+    int n = 31;
     pb_variable<FieldT> A, B, less, less_or_eq;
     A.allocate(pb, "A");
     B.allocate(pb, "B");
@@ -29,8 +29,8 @@ int main()
 
     comparison_gadget<FieldT> cmp(pb, n, A, B, less, less_or_eq, "cmp");
     cmp.generate_r1cs_constraints();
-    int a = 20;
-    int b = 10;
+    int a = 1048570;
+    int b = 1048590;
     pb.val(A) = FieldT(a);
     pb.val(B) = FieldT(b);
 
