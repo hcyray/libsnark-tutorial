@@ -1,55 +1,17 @@
 include_directories(.)
 
 add_executable(
-  test
+  test_cmp
 
-  test.cpp
+  test_cmp.cpp
 )
 target_link_libraries(
-  test
+  test_cmp
 
   snark
 )
 target_include_directories(
-  test
-
-  PUBLIC
-  ${DEPENDS_DIR}/libsnark
-  ${DEPENDS_DIR}/libsnark/depends/libfqfft
-  ${DEPENDS_DIR}/libsnark/depends/libff
-)
-
-add_executable(
-  test-gadget
-
-  test-gadget.cpp
-)
-target_link_libraries(
-  test-gadget
-
-  snark
-)
-target_include_directories(
-  test-gadget
-
-  PUBLIC
-  ${DEPENDS_DIR}/libsnark
-  ${DEPENDS_DIR}/libsnark/depends/libfqfft
-  ${DEPENDS_DIR}/libsnark/depends/libff
-)
-
-add_executable(
-  test-knowledge-of-preimage
-
-  test-knowledge-of-preimage.cpp
-)
-target_link_libraries(
-  test-knowledge-of-preimage
-
-  snark
-)
-target_include_directories(
-  test-knowledge-of-preimage
+  test_cmp
 
   PUBLIC
   ${DEPENDS_DIR}/libsnark
