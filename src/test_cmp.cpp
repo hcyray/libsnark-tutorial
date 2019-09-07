@@ -41,5 +41,5 @@ int main()
     cout << "Primary (public) input: " << pb.primary_input() << endl;
     cout << "Auxiliary (private) input: " << pb.auxiliary_input() << endl;
     cout << "Verification status: " << verified << endl;
-    return 0
+    return 0;
     }
