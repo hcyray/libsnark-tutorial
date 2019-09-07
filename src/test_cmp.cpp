@@ -13,7 +13,11 @@ using namespace libsnark;
 using namespace std;
 int main()
 {
+     typedef libff::Fr<default_r1cs_ppzksnark_pp> FieldT;
 
+  // Initialize the curve parameters
+
+    default_r1cs_ppzksnark_pp::init_public_params();
     protoboard<FieldT> pb;
 
     pb_variable<FieldT> A, B, less, less_or_eq;
