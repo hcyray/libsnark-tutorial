@@ -41,7 +41,10 @@ int main()
     const r1cs_ppzksnark_proof<default_r1cs_ppzksnark_pp> proof = r1cs_ppzksnark_prover<default_r1cs_ppzksnark_pp>(keypair.pk, pb.primary_input(), pb.auxiliary_input());
 
     bool verified = r1cs_ppzksnark_verifier_strong_IC<default_r1cs_ppzksnark_pp>(keypair.vk, pb.primary_input(), proof);
-
+    cout << "result:" << endl;
+    cout << (pb.val(less) == (a < b ? FieldT::one() : FieldT::zero()) << endl;
+    cout << pb.val(less_or_eq) == (a <= b ? FieldT::one() : FieldT::zero()) << endl;
+    cout << pb.is_satisfied() << endl;
     cout << "Number of R1CS constraints: " << constraint_system.num_constraints() << endl;
     cout << "Primary (public) input: " << pb.primary_input() << endl;
     cout << "Auxiliary (private) input: " << pb.auxiliary_input() << endl;
