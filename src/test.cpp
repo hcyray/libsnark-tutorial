@@ -26,9 +26,9 @@ int main()
   // Define variables
 
   pb_variable<FieldT> x;
-  pb_variable<FieldT> sym_1;
+  //pb_variable<FieldT> sym_1;
   pb_variable<FieldT> y;
-  pb_variable<FieldT> sym_2;
+  //pb_variable<FieldT> sym_2;
   pb_variable<FieldT> out;
 
   // Allocate variables to protoboard
@@ -36,9 +36,9 @@ int main()
   
   out.allocate(pb, "out");
   x.allocate(pb, "x");
-  sym_1.allocate(pb, "sym_1");
+  //sym_1.allocate(pb, "sym_1");
   y.allocate(pb, "y");
-  sym_2.allocate(pb, "sym_2");
+  //sym_2.allocate(pb, "sym_2");
 
   // This sets up the protoboard variables
   // so that the first one (out) represents the public
@@ -48,24 +48,24 @@ int main()
   // Add R1CS constraints to protoboard
 
   // x*x = sym_1
-  pb.add_r1cs_constraint(r1cs_constraint<FieldT>(x, x, sym_1));
+  //pb.add_r1cs_constraint(r1cs_constraint<FieldT>(x, x, sym_1));
 
   // sym_1 * x = y
-  pb.add_r1cs_constraint(r1cs_constraint<FieldT>(sym_1, x, y));
+  //pb.add_r1cs_constraint(r1cs_constraint<FieldT>(sym_1, x, y));
 
   // y + x = sym_2
-  pb.add_r1cs_constraint(r1cs_constraint<FieldT>(y + x, 1, sym_2));
+  pb.add_r1cs_constraint(r1cs_constraint<FieldT>(y + x, 1, out));
 
   // sym_2 + 5 = ~out
-  pb.add_r1cs_constraint(r1cs_constraint<FieldT>(sym_2 + 5, 1, out));
+  //pb.add_r1cs_constraint(r1cs_constraint<FieldT>(sym_2 + 5, 1, out));
   
   // Add witness values
 
   pb.val(x) = 3;
-  pb.val(out) = 35;
-  pb.val(sym_1) = 9;
+  pb.val(out) = 30;
+  //pb.val(sym_1) = 9;
   pb.val(y) = 27;
-  pb.val(sym_2) = 30;
+  //pb.val(sym_2) = 30;
 
   const r1cs_constraint_system<FieldT> constraint_system = pb.get_constraint_system();
 

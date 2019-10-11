@@ -1,17 +1,17 @@
 include_directories(.)
 
 add_executable(
-  test_cmp
+        test
 
-  test_cmp.cpp
+        test.cpp
 )
 target_link_libraries(
-  test_cmp
+        test
 
   snark
 )
 target_include_directories(
-  test_cmp
+        test
 
   PUBLIC
   ${DEPENDS_DIR}/libsnark
